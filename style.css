@@ -23,15 +23,12 @@ body {
     background-color: var(--primary-color);
     color: var(--secondary-color);
     line-height: 1.6;
-    display: -webkit-flex; /* EDITED: Safari prefix */
     display: flex;
-    -webkit-flex-direction: column; /* EDITED: Safari prefix */
     flex-direction: column;
     min-height: 100vh;
 }
 
 main {
-    -webkit-flex-grow: 1; /* EDITED: Safari prefix */
     flex-grow: 1;
 }
 
@@ -538,10 +535,14 @@ footer {
 }
 
 .instructor-card img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 120px;
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center top; 
     border: 3px solid var(--accent-color);
     margin-bottom: 15px;
 }
