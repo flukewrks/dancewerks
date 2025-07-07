@@ -23,12 +23,15 @@ body {
     background-color: var(--primary-color);
     color: var(--secondary-color);
     line-height: 1.6;
+    display: -webkit-flex; /* EDITED: Safari prefix */
     display: flex;
+    -webkit-flex-direction: column; /* EDITED: Safari prefix */
     flex-direction: column;
     min-height: 100vh;
 }
 
 main {
+    -webkit-flex-grow: 1; /* EDITED: Safari prefix */
     flex-grow: 1;
 }
 
@@ -290,9 +293,8 @@ footer {
     margin: 5px 0;
 }
 
-/* EDITED: Added this rule to style tel links */
 .footer-contact-info a {
-    color: inherit; /* Inherit color from parent (.footer-contact-info) */
+    color: inherit; 
     text-decoration: none;
     transition: color 0.3s;
 }
