@@ -2,7 +2,7 @@
 :root {
     --primary-color: #0D0D0D; /* Black */
     --secondary-color: #FFFFFF; /* White */
-    --accent-color: #f51900; /* Burnt Red */
+    --accent-color: #B13022; /* Burnt Red */
     --font-headline: 'Bebas Neue', sans-serif;
     --font-body: 'Poppins', sans-serif;
 }
@@ -290,6 +290,18 @@ footer {
     margin: 5px 0;
 }
 
+/* EDITED: Added this rule to style tel links */
+.footer-contact-info a {
+    color: inherit; /* Inherit color from parent (.footer-contact-info) */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-contact-info a:hover {
+    color: var(--accent-color);
+}
+
+
 .social-links {
     margin: 30px 0;
 }
@@ -402,7 +414,6 @@ footer {
     margin-top: 20px;
 }
 
-/* EDITED: Apply grid to the container that holds the form and info */
 .contact-form-container {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
@@ -420,7 +431,7 @@ footer {
 
 #contact-form {
     max-width: 100%;
-    text-align: left; /* Keep form labels left-aligned */
+    text-align: left; 
 }
 
 .form-group {
@@ -836,7 +847,7 @@ footer {
     }
 
     .contact-modal-body,
-    .contact-form-container { /* EDITED: Apply to new container as well */
+    .contact-form-container { 
         grid-template-columns: 1fr;
     }
     .contact-info-container {
