@@ -551,3 +551,19 @@ document.addEventListener('DOMContentLoaded', function() {
             calendarModal.style.display = 'none';
         });
     }
+// --- Dreamwerks Registration Modal ---
+const dreamwerksModal = document.getElementById('dreamwerksModal');
+const openDreamwerksBtn = document.getElementById('open-dreamwerks-btn');
+const closeDreamwerksBtn = document.querySelector('.dreamwerks-close');
+
+if (openDreamwerksBtn && dreamwerksModal) {
+    openDreamwerksBtn.addEventListener('click', () => {
+        dreamwerksModal.style.display = 'flex';
+    });
+}
+
+if (closeDreamwerksBtn && dreamwerksModal) {
+    closeDreamwerksBtn.addEventListener('click', () => {
+        dreamwerksModal.style.display = 'none';
+    });
+}
