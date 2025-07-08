@@ -790,3 +790,41 @@ footer {
 @media screen and (max-width: 400px) {
     .crew-grid { grid-template-columns: 1fr; }
 }
+/* --- Styles for Dreamwerks Registration Form --- */
+
+/* จัดการช่องกรอกที่อยู่ข้างกัน (น้ำหนัก/ส่วนสูง) */
+.form-group-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* จัดกลุ่ม Checkbox */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    background-color: #1f1f1f;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #ccc;
+    font-weight: 400;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+/* สไตล์ปุ่มสมัครโปรเจกต์ */
+#open-dreamwerks-btn {
+    margin-top: 20px;
+}
