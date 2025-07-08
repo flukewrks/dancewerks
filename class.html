@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classes - DANCEWERKS</title>    
+    <title>Classes - DANCEWERKS</title>
+    
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://www.gstatic.com https://apis.google.com;">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230D0D0D' /><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Bebas Neue, sans-serif' font-size='65' fill='%23B13022' dy='.05em'>DW</text></svg>">
+    
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="classes-page">
 
-    <!-- ======== HEADER & NAVIGATION (เหมือนหน้าแรก) ======== -->
-    <header>
+   <header>
         <nav>
             <div class="logo">
                 <a href="index.html"><img src="images/icon2.png" alt="DANCEWERKS Logo"></a>
@@ -19,10 +23,11 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="class.html">Classes</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
                 <li><a href="#" class="open-contact-btn">Contact Us</a></li>
-                <li><button class="cta-button nav-button mobile-only-button open-modal-button">Book Now</button></li>
+                <li><button class="cta-button nav-button mobile-only-button open-booking-modal-btn">Book Now</button></li>
             </ul>
-            <button class="cta-button nav-button desktop-only-button open-modal-button">Book Now</button>
+            <button class="cta-button nav-button desktop-only-button open-booking-modal-btn">Book Now</button>
             <div class="burger">
                 <div class="line1"></div>
                 <div class="line2"></div>
@@ -31,14 +36,12 @@
         </nav>
     </header>
 
-    <!-- ======== MAIN CONTENT ======== -->
-    <main class="classes-page">
+    <main>
         <section class="page-hero">
             <h1>All Classes</h1>
             <p>Find the perfect training program for you.</p>
         </section>
 
-        <!-- === IDOL TRAINING SECTION === -->
         <section class="class-detail-section">
             <div class="class-content">
                 <h2>IDOL TRAINING</h2>
@@ -55,7 +58,6 @@
             </div>
         </section>
 
-        <!-- === COMPETITION TRAINING SECTION === -->
         <section class="class-detail-section dark-bg">
             <div class="class-content">
                 <h2>COMPETITION TRAINING</h2>
@@ -80,7 +82,6 @@
             </div>
         </section>
 
-        <!-- === PRIVATE TRAINING SECTION === -->
         <section class="class-detail-section">
             <div class="class-content">
                 <h2>PRIVATE CLASS FEE</h2>
@@ -125,16 +126,13 @@
                         <div>2,000.-</div>
                     </div>
                 </div>
-                <button class="cta-button primary-button open-modal-button">Book Now</button>
+                <a href="schedule.html" class="cta-button primary-button">Book Private Class</a>
             </div>
         </section>
-
     </main>
 
-    <!-- ======== FOOTER ======== -->
     <footer id="contact">
         <h2>READY TO WERK?</h2>
-        <!-- EDITED: Added Contact Info -->
         <div class="footer-contact-info">
             <p>Tel: 095-446-7759</p>
             <p>Line ID: @dancewerks</p>
@@ -147,10 +145,6 @@
         <p>&copy; 2025 DANCEWERKS. All Rights Reserved.</p>
     </footer>
 
-    <!-- ======== MODALS (Pop-ups) ======== -->
-    <!-- ======== MODALS (Pop-ups) ======== -->
-
-    <!-- MODAL FOR GOOGLE CALENDAR -->
     <div id="calendarModal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
@@ -164,7 +158,6 @@
         </div>
     </div>
 
-    <!-- MODAL FOR CONTACT US -->
     <div id="contactModal" class="modal">
         <div class="modal-content contact-modal-content">
             <span class="close-button contact-close">&times;</span>
@@ -174,120 +167,50 @@
                 <div class="contact-modal-body">
                     <div class="contact-form-container">
                         <form id="contact-form" action="https://formspree.io/f/xeokwpjj" method="POST">
-                    <div class="form-group">
-                        <label for="name">ชื่อ (Name):</label>
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            <div class="form-group">
+                                <label for="name-class">ชื่อ (Name):</label>
+                                <input type="text" id="name-class" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email-class">อีเมลติดต่อกลับ (Email):</label>
+                                <input type="email" id="email-class" name="email" placeholder="Your Email Address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone-class">เบอร์โทร (Phone):</label>
+                                <input type="tel" id="phone-class" name="phone" placeholder="Your Phone Number">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-class">รายละเอียด (Details):</label>
+                                <textarea id="message-class" name="message" rows="4" placeholder="Tell us how we can help..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="callback-time-class">เวลาที่สะดวกให้ติดต่อกลับ (Preferred Callback Time):</label>
+                                <select id="callback-time-class" name="callback-time">
+                                    <option value="any">Anytime (เวลาใดก็ได้)</option>
+                                    <option value="morning">Morning (09:00 - 12:00)</option>
+                                    <option value="afternoon">Afternoon (13:00 - 17:00)</option>
+                                    <option value="evening">Evening (17:00 - 19:00)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="cta-button primary-button">Send Message</button>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="email">อีเมลติดต่อกลับ (Email):</label>
-                        <input type="email" id="email" name="email" placeholder="Your Email Address" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">เบอร์โทร (Phone):</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Your Phone Number">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">รายละเอียด (Details):</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Tell us how we can help..." required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="callback-time">เวลาที่สะดวกให้ติดต่อกลับ (Preferred Callback Time):</label>
-                        <select id="callback-time" name="callback-time">
-                            <option value="any">Anytime (เวลาใดก็ได้)</option>
-                            <option value="morning">Morning (09:00 - 12:00)</option>
-                            <option value="afternoon">Afternoon (13:00 - 17:00)</option>
-                            <option value="evening">Evening (17:00 - 19:00)</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="cta-button primary-button">Send Message</button>
-                </form>
-                <div class="contact-info-container">
-                    <p>หรือติดต่อเราโดยตรง</p>
-                    <div class="qr-code">
-                        <img src="images/line-qr.png" alt="Line QR Code">
-                        <span>Line ID: @dancewerks</span>
-                    </div>
-                    <div class="phone-info">
-                        <span>Tel: 095-446-7759</span>
-                    </div>
-                </div>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL FOR MEET THE CREW -->
-    <div id="crewModal" class="modal">
-        <div class="modal-content crew-modal-content">
-            <span class="close-button crew-close">&times;</span>
-            <h2>Meet The Crew</h2>
-            <div class="crew-grid">
-                <div class="instructor-card" data-video-src="vdo/bg01.m4v">
-                    <img src="images/icon2.png" alt="Instructor Alex">
-                    <h4>MEKA</h4>
-                    <p>Lead Choreographer</p>
-                    <div class="instructor-social">
-                        <a href="#" target="_blank" rel="noopener noreferrer">
-                            <span>@mekastarboy</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="instructor-card" data-video-src="vdo/bg01.m4v">
-                    <img src="images/icon2.png" alt="Instructor Bella">
-                    <h4>FLUKE</h4>
-                    <p>Project Leader</p>
-                    <div class="instructor-social">
-                        <a href="#" target="_blank" rel="noopener noreferrer">
-                            <span>@f99s_t</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="instructor-card" data-video-src="vdo/bg01.m4v">
-                    <img src="images/icon2.png" alt="Instructor Bella">
-                    <h4>FLUKE</h4>
-                    <p>Project Leader</p>
-                    <div class="instructor-social">
-                        <a href="#" target="_blank" rel="noopener noreferrer">
-                            <span>@f99s_t</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="instructor-card" data-video-src="vdo/bg01.m4v">
-                    <img src="images/icon2.png" alt="Instructor Bella">
-                    <h4>FLUKE</h4>
-                    <p>Project Leader</p>
-                    <div class="instructor-social">
-                        <a href="#" target="_blank" rel="noopener noreferrer">
-                            <span>@f99s_t</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="instructor-card" data-video-src="vdo/bg01.m4v">
-                    <img src="images/icon2.png" alt="Instructor Bella">
-                    <h4>FLUKE</h4>
-                    <p>Project Leader</p>
-                    <div class="instructor-social">
-                        <a href="#" target="_blank" rel="noopener noreferrer">
-                            <span>@f99s_t</span>
-                        </a>
+                    <div class="contact-info-container">
+                        <p>หรือติดต่อเราโดยตรง</p>
+                        <div class="qr-code">
+                            <img src="images/line-qr.png" alt="Line QR Code">
+                            <span>Line ID: @dancewerks</span>
+                        </div>
+                        <div class="phone-info">
+                            <span>Tel: 095-446-7759</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- MODAL FOR INSTRUCTOR VIDEO -->
-    <div id="instructorVideoModal" class="modal">
-        <div class="modal-content video-modal-content">
-            <span class="close-button instructor-video-close">&times;</span>
-            <video id="instructorVideoPlayer" width="100%" controls>
-                <source src="vdo/bg01.m4v" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
         </div>
     </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>

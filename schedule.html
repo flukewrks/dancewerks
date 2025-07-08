@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking - DANCEWERKS</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230D0D0D' /><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Bebas Neue, sans-serif' font-size='65' fill='%23B13022' dy='.05em'>DW</text></svg>">
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body class="schedule-page">
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="images/icon2.png" alt="DANCEWERKS Logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="class.html">Classes</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="#" class="open-contact-btn">Contact Us</a></li>
+                <li><button class="cta-button nav-button mobile-only-button open-booking-modal-btn">Book Now</button></li>
+            </ul>
+            <button class="cta-button nav-button desktop-only-button open-booking-modal-btn">Book Now</button>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <h1>Private Class Booking</h1>
+            <p>Follow the steps to build your package and request your sessions.</p>
+        </section>
+
+        <section class="booking-section">
+            <div class="booking-flow-container">
+                
+                <div class="booking-options">
+                    <div class="step-box">
+                        <h3>1. Select Class Type</h3>
+                        <select id="package-type" class="custom-select">
+                            <option value="solo" data-min="1" data-max="1">SOLO (1 person)</option>
+                            <option value="duo" data-min="2" data-max="2">DUO (2 person)</option>
+                            <option value="trio" data-min="3" data-max="3">TRIO (3 person)</option>
+                            <option value="group-small" data-min="4" data-max="5">SMALL GROUP (4-5 person)</option>
+                            <option value="group-large" data-min="6" data-max="100">LARGE GROUP (6+ person)</option>
+                        </select>
+                        <div id="group-size-wrapper" class="input-wrapper" style="display: none;">
+                            <label for="group-size-select">Number of People:</label>
+                            <select id="group-size-select" class="custom-select" style="display: none;">
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <input type="number" id="group-size-input" class="custom-input" min="6" value="6" style="display: none;">
+                        </div>
+                    </div>
+
+                    <div class="step-box">
+                        <h3>2. Select Package</h3>
+                        <div class="options-grid">
+                            <div class="option-item">
+                                <input type="radio" id="1hr" name="duration" value="1">
+                                <label for="1hr">1 Hour <small>(Contact via Line)</small></label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" id="4hr" name="duration" value="4" checked>
+                                <label for="4hr">4 Hours Package</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" id="8hr" name="duration" value="8">
+                                <label for="8hr">8 Hours Package</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-box">
+                        <h3>3. Price (per person)</h3>
+                        <p id="calculated-price">Calculating...</p>
+                    </div>
+
+                    <div id="action-bar-step" class="booking-action-bar">
+                        <div id="selection-summary">
+                            <p>Selected: <span id="selected-hours">0</span> / <span id="total-hours">4</span> hr.</p>
+                        </div>
+                        <button id="request-booking-btn" class="cta-button primary-button" disabled>Request Booking</button>
+                    </div>
+                </div>
+
+                <div id="time-selection-step" class="calendar-container">
+                    <div id="calendar-header">
+                        <button id="prev-month-btn">&lt;</button>
+                        <h3 id="month-year-display">Loading...</h3>
+                        <button id="next-month-btn">&gt;</button>
+                    </div>
+                    <div id="calendar-weekdays">
+                        <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                    </div>
+                    <div id="calendar-grid">
+                        <div class="loading-spinner"></div>
+                    </div>
+
+                    <div id="time-slot-display" style="display: none;">
+                        <h4 id="time-slot-header">Select time for...</h4>
+                        <div class="booking-type-selector">
+                            <input type="radio" id="custom-time" name="booking-type" value="custom" checked>
+                            <label for="custom-time">Custom Selection</label>
+                            <input type="radio" id="recurring-time" name="booking-type" value="recurring">
+                            <label for="recurring-time">Recurring Time</label>
+                        </div>
+                        <div id="recurring-options" style="display: none;" class="options-grid">
+                            <div class="option-item">
+                                <input type="radio" id="recurring-1hr" name="recurring-duration" value="1" checked>
+                                <label for="recurring-1hr">1 Hour / Session</label>
+                            </div>
+                            <div class="option-item">
+                                <input type="radio" id="recurring-2hr" name="recurring-duration" value="2">
+                                <label for="recurring-2hr">2 Hours / Session</label>
+                            </div>
+                        </div>
+                        <div id="time-slots-container"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        </footer>
+
+    <div id="contactModal" class="modal">
+        </div>
+
+    <div id="bookingConfirmationModal" class="modal">
+        <div class="modal-content booking-confirm-content">
+            <span class="close-button booking-confirm-close">&times;</span>
+            <h2>Confirm Booking Request</h2>
+            
+            <div class="booking-summary">
+                <h4>Booking Summary</h4>
+                <p id="summary-package"></p>
+                <p id="summary-price"></p>
+                <h4>Selected Slots</h4>
+                <ul id="summary-details-list"></ul>
+            </div>
+
+            <div class="payment-info">
+                <h4>Payment Information</h4>
+                <div class="payment-details">
+                    <img src="images/qr-payment.png" alt="QR Code for payment" id="payment-qr-code">
+                    <p>Account Number: <strong>123-456-7890</strong><br>Bank: <strong>Kasikorn Bank</strong><br>Name: <strong>DANCEWERKS Studio</strong></p>
+                </div>
+            </div>
+
+            <form id="booking-request-form" action="https://formspree.io/f/xeokwpjj" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="booking_request_summary" id="hidden-summary">
+                
+                <div class="form-group">
+                    <label for="booking-nickname">Nickname:</label>
+                    <input type="text" id="booking-nickname" name="customer_nickname" required>
+                </div>
+                <div class="form-group">
+                    <label for="booking-payer-name">Payer's Full Name:</label>
+                    <input type="text" id="booking-payer-name" name="customer_payer_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="booking-phone">Phone:</label>
+                    <input type="tel" id="booking-phone" name="customer_phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="booking-email">Email:</label>
+                    <input type="email" id="booking-email" name="customer_email" required>
+                </div>
+                <div class="form-group">
+                    <label for="payment-slip">Proof of Payment (Slip):</label>
+                    <input type="file" id="payment-slip" name="payment_slip" accept="image/*" required>
+                </div>
+                <button type="submit" class="cta-button primary-button">Send Request</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
