@@ -4,36 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DANCEWERKS</title>
-    
+     <link rel="icon" type="image/png" href="images/icon.png">  
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://www.gstatic.com https://apis.google.com;">
-
-    <link rel="icon" type="image/png" href="images/icon2.png">    
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <nav>
-            <div class="logo">
-                <a href="index.html"><img src="images/icon2.png" alt="DANCEWERKS Logo"></a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="class.html">Classes</a></li>
-                <li><a href="schedule.html">Schedule</a></li>
-                <li><a href="#" class="open-contact-btn">Contact Us</a></li>
-                <li><button class="cta-button nav-button mobile-only-button open-booking-modal-btn">Book Now</button></li>
-            </ul>
-            <button class="cta-button nav-button desktop-only-button open-booking-modal-btn">Book Now</button>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </header>
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="images/icon2.png" alt="DANCEWERKS Logo"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="class.html">Classes</a></li>
+            <li><a href="event.html">Events</a></li>
+            <li><a href="#" class="open-contact-btn">Contact Us</a></li>
+            <li>
+                <a href="schedule.html" class="cta-button nav-button mobile-only-button">
+                    <span class="button-text-small">PRIVATE</span>
+                    <span class="button-text-large">BOOKING NOW</span>
+                </a>
+            </li>
+        </ul>
+        <a href="schedule.html" class="cta-button nav-button desktop-only-button cta-button-unavailable">
+            <span class="button-text-small">PRIVATE CLASS</span>
+            <span class="button-text-large">BOOKING NOW</span>
+        </a>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+</header>
 
     <main>
         <section id="home" class="hero">
@@ -43,47 +49,84 @@
             <div class="hero-content">
                 <h1>DON'T WISH JUST WERKS.</h1>
                 <p>More than a studio. We are a community built on rhythm, passion, and self-expression.</p>
-                <button class="cta-button primary-button open-modal-button">BOOK YOUR FIRST CLASS</button>
             </div>
         </section>
+        <section id="news" class="offer-section news-section">
+    <h2>LATEST NEWS & EVENTS</h2>
+    <div class="news-container">
 
-        <section id="classes" class="offer-section">
-            <h2>FIND YOUR WERKS!</h2>
-            <div class="class-cards">
-                <div class="card">
-                    <h3>IDOL TRAINING</h3>
-                    <p>From foundational grooves to intricate choreography. Ride the beat and own the floor.</p>
-                </div>
-                <div class="card">
-                    <h3>COMPETITION TRAINING</h3>
-                    <p>Tell stories through movement. Explore fluidity, emotion, and technical grace.</p>
-                </div>
-                <div class="card">
-                    <h3>PRIVATE TRAINING</h3>
-                    <p>Embrace your confidence. High energy, sharp lines, and unapologetic style.</p>
-                </div>
+        <article class="news-card">
+            <span class="event-tag event-tag-news">Recruitment</span>
+            <h3>เปิดรับสมัครสมาชิกTEAMWERKS</h3>
+            <p class="news-date">Posted on: July 9, 2025</p>
+            <p class="news-description">
+                โอกาสมาถึงแล้ว! DANCEWERKS เปิดรับสมัครนักเต้นรุ่นใหม่เข้าร่วมทีมแข่งขันเพื่อเป็นตัวแทนของสตูดิโอในการแข่งขันระดับประเทศ
+            </p>
+            <div class="news-card-actions">
+                <a href="teamwerks-qualify.html" class="cta-button primary-button">สมัคร Audition</a>
+                <a href="event.html" class="cta-button secondary-button">อ่านเพิ่มเติม</a>
             </div>
-            <a href="class.html" class="cta-button secondary-button">Explore All Classes</a>
-        </section>
+        </article>
 
-        <section id="about" class="why-section">
-            <h2>IT'S A WERKS.</h2>
-            <div class="features">
-                <div class="feature-item">
-                    <h4>World-Class Instructors</h4>
-                    <p>Learn from passionate, experienced dancers dedicated to your growth.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>All Levels Welcome</h4>
-                    <p>Whether it's your first step or you're a seasoned pro, there's a place for you.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>A True Community</h4>
-                    <p>We're not just about steps; we're about connection. Grow and succeed together.</p>
-                </div>
+        <article class="news-card">
+            <span class="event-tag event-tag-workshop">Pop-Up Class</span>
+            <h3>1st POP-UP CHOREOGRAPHY CLASS</h3>
+            <p class="news-date">Coming Soon: July 13, 2025</p>
+            <p class="news-description">
+                คลาสเวิร์คช็อปสุดพิเศษครั้งแรกจาก Fluke x Meka เตรียมตัวให้พร้อม! รับจำนวนจำกัด ติดตามรายละเอียดเพิ่มเติมได้ที่นี่
+            </p>
+            <div class="news-card-actions">
+                <a href="event.html" class="cta-button secondary-button">ดูรายละเอียด</a>
             </div>
-             <button class="cta-button secondary-button open-crew-btn">Meet The Crew</button>
-        </section>
+        </article>
+
+    </div>
+</section>
+       <section id="classes" class="offer-section interactive-section fade-in-section">
+    <h2>FIND YOUR WERKS!</h2>
+    <div class="card-container">
+        
+        <div class="interactive-card">
+            <h3>IDOL TRAINING</h3>
+            <p class="card-description">From trainee to idol. Master stage performance and camera work with elite, industry-level choreography.</p>
+        </div>
+
+        <div class="interactive-card">
+            <h3>COMPETITION TRAINING</h3>
+            <p class="card-description">Train to win. Our intensive program builds award-winning technique and the mindset to dominate the stage.</p>
+        </div>
+
+        <div class="interactive-card">
+            <h3>PRIVATE TRAINING</h3>
+            <p class="card-description">Accelerate your growth. One-on-one coaching, custom-tailored to help you master your personal dance goals.</p>
+        </div>
+
+    </div>
+    <a href="class.html" class="cta-button secondary-button">Explore All Classes</a>
+</section>
+
+<section id="about" class="why-section interactive-section fade-in-section">
+    <h2>IT'S A WERKS.</h2>
+    <div class="card-container">
+
+        <div class="interactive-card">
+            <h4>ELITE INSTRUCTORS</h4>
+            <p class="card-description">Learn directly from active industry professionals and choreographers who are dedicated to your growth.</p>
+        </div>
+
+        <div class="interactive-card">
+            <h4>ALL GRINDS WELCOME</h4>
+            <p class="card-description">We offer a clear path for every skill level, from absolute beginners to seasoned professionals. Find your class and start your journey.</p>
+        </div>
+
+        <div class="interactive-card">
+            <h4>MORE THAN A STUDIO</h4>
+            <p class="card-description">Join a high-vibe community of artists, united by a passion for dance and a drive to succeed together.</p>
+        </div>
+
+    </div>
+    <button class="cta-button secondary-button open-crew-btn">Meet The Crew</button>
+</section>
     </main>
 
     <footer id="contact">
@@ -94,24 +137,11 @@
         </div>
         <div class="social-links">
             <a href="https://www.instagram.com/dancewerkstudio/" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="#">TikTok</a>
             <a href="https://www.facebook.com/profile.php?id=61562082060817" target="_blank" rel="noopener noreferrer">Facebook</a>
         </div>
         <p>&copy; 2025 DANCEWERKS. All Rights Reserved.</p>
     </footer>
 
-    <div id="calendarModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2>Class Schedule</h2>
-            <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Zx044tSlEoXPhLMisTAoPJQZ6y_jeSGgtQk9T4R6dIPlyCblxoWEmTuzVsUiefvycpM5AgtL3?gv=true" 
-                    style="border: 0" 
-                    width="100%" 
-                    height="600" 
-                    frameborder="0">
-            </iframe>
-        </div>
-    </div>
 
     <div id="contactModal" class="modal">
         <div class="modal-content contact-modal-content">
@@ -121,7 +151,9 @@
                 <p>Have a question or want to collaborate? Drop us a line!</p>
                 <div class="contact-modal-body">
                     <div class="contact-form-container">
-                        <form id="contact-form" action="https://formspree.io/f/xeokwpjj" method="POST">
+                        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="redirect" value="https://dncwrks.com/thank-you.html">
+                            <input type="hidden" name="access_key" value="0e1446c9-c156-4947-b0f4-221ade1a1077">
                             <div class="form-group">
                                 <label for="name">ชื่อ (Name):</label>
                                 <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -147,7 +179,7 @@
                                     <option value="evening">Evening (17:00 - 19:00)</option>
                                 </select>
                             </div>
-                            <button type="submit" class="cta-button primary-button">Send Message</button>
+                            <button type="submit" class="cta-button primary-button cta-button-unavailable">Send Message</button>
                         </form>
                     </div>
                     <div class="contact-info-container">
@@ -192,7 +224,7 @@
                     <img src="images/icon2.png" alt="Instructor Snake">
                     <h4>SNAKE</h4>
                     <p>Instructor</p>
-                    <div class="instructor-social"><a href="#" target="_blank" rel="noopener noreferrer"><span>@sasunsnake</span></a></div>
+                    <div class="instructor-social"><a href="#" target="_blank" rel="noopener noreferrer"><span>@sasunake</span></a></div>
                 </div>
                 <div class="instructor-card" data-video-src="vdo/bg01.m4v">
                     <img src="images/icon2.png" alt="Instructor Save">

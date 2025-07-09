@@ -4,38 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classes - DANCEWERKS</title>
-    
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://www.gstatic.com https://apis.google.com;">
+            <link rel="icon" type="image/png" href="images/icon.png">    
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230D0D0D' /><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Bebas Neue, sans-serif' font-size='65' fill='%23B13022' dy='.05em'>DW</text></svg>">
-    <link rel="icon" type="image/png" href="images/icon2.png">    
-
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://www.gstatic.com https://apis.google.com;">   
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body class="classes-page">
 
-   <header>
-        <nav>
-            <div class="logo">
-                <a href="index.html"><img src="images/icon2.png" alt="DANCEWERKS Logo"></a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="class.html">Classes</a></li>
-                <li><a href="schedule.html">Schedule</a></li>
-                <li><a href="#" class="open-contact-btn">Contact Us</a></li>
-                <li><button class="cta-button nav-button mobile-only-button open-booking-modal-btn">Book Now</button></li>
-            </ul>
-            <button class="cta-button nav-button desktop-only-button open-booking-modal-btn">Book Now</button>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </header>
+  <header>
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="images/icon2.png" alt="DANCEWERKS Logo"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="class.html">Classes</a></li>
+            <li><a href="event.html">Events</a></li>
+            <li><a href="#" class="open-contact-btn">Contact Us</a></li>
+            <li>
+                <a href="schedule.html" class="cta-button nav-button mobile-only-button">
+                    <span class="button-text-small">PRIVATE</span>
+                    <span class="button-text-large">BOOKING NOW</span>
+                </a>
+            </li>
+        </ul>
+        <a href="schedule.html" class="cta-button nav-button desktop-only-button cta-button-unavailable">
+            <span class="button-text-small">PRIVATE CLASS</span>
+            <span class="button-text-large">BOOKING NOW</span>
+        </a>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+</header>
 
     <main>
         <section class="page-hero">
@@ -146,19 +151,6 @@
         <p>&copy; 2025 DANCEWERKS. All Rights Reserved.</p>
     </footer>
 
-    <div id="calendarModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2>Class Schedule</h2>
-            <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Zx044tSlEoXPhLMisTAoPJQZ6y_jeSGgtQk9T4R6dIPlyCblxoWEmTuzVsUiefvycpM5AgtL3?gv=true" 
-                    style="border: 0" 
-                    width="100%" 
-                    height="600" 
-                    frameborder="0">
-            </iframe>
-        </div>
-    </div>
-
     <div id="contactModal" class="modal">
         <div class="modal-content contact-modal-content">
             <span class="close-button contact-close">&times;</span>
@@ -193,7 +185,7 @@
                                     <option value="evening">Evening (17:00 - 19:00)</option>
                                 </select>
                             </div>
-                            <button type="submit" class="cta-button primary-button">Send Message</button>
+                            <button type="submit" class="cta-button primary-button cta-button-unavailable">Send Message</button>
                         </form>
                     </div>
                     <div class="contact-info-container">

@@ -5,35 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking - DANCEWERKS</title>
     
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230D0D0D' /><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Bebas Neue, sans-serif' font-size='65' fill='%23B13022' dy='.05em'>DW</text></svg>">
-    <link rel="icon" type="image/png" href="images/icon2.png">    
+    <link rel="icon" type="image/png" href="images/icon.png">    
 
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body class="schedule-page">
 
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="index.html"><img src="images/icon2.png" alt="DANCEWERKS Logo"></a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="class.html">Classes</a></li>
-                <li><a href="schedule.html">Schedule</a></li>
-                <li><a href="#" class="open-contact-btn">Contact Us</a></li>
-                <li><button class="cta-button nav-button mobile-only-button open-booking-modal-btn">Book Now</button></li>
-            </ul>
-            <button class="cta-button nav-button desktop-only-button open-booking-modal-btn">Book Now</button>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </header>
+   <header>
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="images/icon2.png" alt="DANCEWERKS Logo"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="class.html">Classes</a></li>
+            <li><a href="event.html">Events</a></li>
+            <li><a href="#" class="open-contact-btn">Contact Us</a></li>
+            <li>
+                <a href="schedule.html" class="cta-button nav-button mobile-only-button">
+                    <span class="button-text-small">PRIVATE</span>
+                    <span class="button-text-large">BOOKING NOW</span>
+                </a>
+            </li>
+        </ul>
+        <a href="schedule.html" class="cta-button nav-button desktop-only-button cta-button-unavailable">
+            <span class="button-text-small">PRIVATE CLASS</span>
+            <span class="button-text-large">BOOKING NOW</span>
+        </a>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+</header>
 
     <main>
         <section class="page-hero">
@@ -156,11 +163,11 @@
                 <h4>Payment Information</h4>
                 <div class="payment-details">
                     <img src="images/qr-payment.png" alt="QR Code for payment" id="payment-qr-code">
-                    <p>Account Number: <strong>123-456-7890</strong><br>Bank: <strong>Kasikorn Bank</strong><br>Name: <strong>DANCEWERKS Studio</strong></p>
+                    <p>Account Number: <strong>123-456-7890</strong><br>Bank: <strong>Kasikorn Bank</strong><br>Name: <strong>SUPANUT LANGKASIT</strong></p>
                 </div>
             </div>
 
-            <form id="booking-request-form" action="https://formspree.io/f/xeokwpjj" method="POST" enctype="multipart/form-data">
+            <form id="booking-request-form" action="https://formbold.com/s/60NmM" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="booking_request_summary" id="hidden-summary">
                 
                 <div class="form-group">

@@ -21,7 +21,7 @@
 }
 
 html {
-    height: 100%;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -96,6 +96,10 @@ main {
     color: var(--primary-color);
 }
 
+/* เพิ่มระยะห่างสำหรับปุ่มที่อยู่ติดกัน */
+.cta-button + .cta-button {
+    margin-top: 15px;
+}
 .loading-spinner {
     border: 4px solid var(--border-blue);
     border-top: 4px solid var(--accent-color);
@@ -108,7 +112,20 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+/* สไตล์สำหรับปุ่มที่ปิดรับสมัคร/กดไม่ได้ */
+.cta-button-unavailable {
+    background-color: #333 !important;
+    border-color: #555 !important;
+    color: #777 !important;
+    cursor: not-allowed;
+    pointer-events: none; /* ทำให้ปุ่มกดไม่ได้ */
+}
 
+/* ปิดเอฟเฟกต์ hover ของปุ่มที่ปิดรับสมัคร */
+.cta-button-unavailable::before {
+    background-image: none !important;
+    transform: scaleX(0) !important;
+}
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -174,13 +191,27 @@ nav ul li a:hover:not(.open-contact-btn)::after {
 }
 
 .nav-button {
-    padding: 8px 20px;
+    padding: 6px 20px; /* ปรับ Padding ให้เหมาะกับ 2 บรรทัด */
     font-size: 0.9em;
     background-color: transparent;
     color: var(--secondary-color);
     border-color: var(--secondary-color);
+    line-height: 1.3; /* ปรับระยะห่างระหว่างบรรทัด */
+    text-align: center;
+}
+.nav-button .button-text-small {
+    display: block; /* ทำให้ขึ้นบรรทัดใหม่ */
+    font-size: 0.75em;
+    font-weight: 400;
+    text-transform: uppercase;
 }
 
+.nav-button .button-text-large {
+    display: block;
+    font-size: 1.1em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
 .nav-button:hover {
     background-color: var(--secondary-color);
     color: var(--primary-color) !important;
@@ -211,7 +242,7 @@ nav ul li a:hover:not(.open-contact-btn)::after {
 }
 
 /* ==========================================================================
-   4. Page Sections
+   4. Page Sections (Homepage)
    ========================================================================== */
 section {
     padding: 100px 10%;
@@ -236,12 +267,18 @@ section h2 {
 }
 
 .video-background {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    position: fixed; /* << เปลี่ยนเป็น fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* ให้สูงเต็มหน้าจอ */
     z-index: -2;
+    transition: filter 0.5s ease-in-out; /* เพิ่ม transition ให้การเบลอนุ่มนวล */
 }
-
+/* Class สำหรับทำให้วิดีโอเบลอ */
+.video-background.is-blurred video {
+    filter: blur(8px); /* ปรับความเบลอได้ตามต้องการ */
+}
 .video-background video {
     width: 100%; height: 100%;
     object-fit: cover;
@@ -267,6 +304,10 @@ section h2 {
     font-size: 1.2em;
     margin-bottom: 30px;
     text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+#open-dreamwerks-btn {
+    margin-top: 20px;
 }
 
 /* Offer / Classes Section */
@@ -406,7 +447,7 @@ footer {
     to { opacity: 1; transform: scale(1); }
 }
 
-/* Contact Us Modal */
+/* Contact Us & Dreamwerks Modal Forms */
 .contact-modal-content {
     max-width: 800px;
     padding: 30px 40px;
@@ -457,7 +498,33 @@ footer {
     border-color: var(--accent-color);
     box-shadow: 0 0 0 3px rgba(177, 48, 34, 0.3);
 }
-#contact-form button { display: block; width: 100%; font-size: 1.1em; margin-top: 10px; }
+
+.form-group-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    background-color: #1f1f1f;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #ccc;
+    font-weight: 400;
+}
+.checkbox-group input[type="checkbox"] {
+    width: 1.2em;
+    height: 1.2em;
+}
 
 /* Meet the Crew Modal */
 .crew-modal-content { max-width: 1000px; padding: 30px 40px; }
@@ -520,15 +587,12 @@ footer {
     max-width: 1400px;
     margin: 0 auto;
 }
-
-/* Left Column: Options */
 .booking-options {
     background-color: var(--bg-dark-blue);
     padding: 1.5rem;
     border-radius: 10px;
     height: fit-content;
 }
-
 .step-box {
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
@@ -539,7 +603,6 @@ footer {
     margin-bottom: 0;
     padding-bottom: 0;
 }
-
 .step-box h3 {
     font-family: var(--font-headline);
     font-size: 1.8em;
@@ -595,21 +658,19 @@ footer {
 }
 
 #calculated-price {
-    font-size: 1.2em; /* ปรับขนาดฟอนต์ให้เล็กลง */
+    font-size: 1.8em;
     font-weight: 700;
     color: var(--secondary-color);
     word-wrap: break-word;
-    line-height: 1.3; /* ปรับความสูงระหว่างบรรทัด */
+    line-height: 1.3;
 }
 #calculated-price small {
-    display: block; /* ทำให้ขึ้นบรรทัดใหม่ */
-    font-size: 0.5em; /* ปรับขนาดฟอนต์ให้เล็กลงครึ่งหนึ่งของราคา */
-    font-weight: 400; /* ทำให้เป็นตัวปกติ ไม่หนา */
-    color: #A0AEC0;  /* ทำให้สีอ่อนลง */
-    margin-top: 5px;  /* เพิ่มระยะห่างจากบรรทัดบน */
+    display: block;
+    font-size: 0.5em;
+    font-weight: 400;
+    color: #A0AEC0;
+    margin-top: 5px;
 }
-
-/* Right Column: Calendar & Time Slots */
 .calendar-container {
     background-color: var(--bg-dark-blue);
     padding: 1.5rem;
@@ -638,8 +699,6 @@ footer {
     transform: scale(1.1); box-shadow: 0 0 15px var(--accent-color);
 }
 .day-cell.is-disabled { color: var(--border-blue); background-color: var(--bg-med-blue); cursor: not-allowed; text-decoration: line-through; }
-
-/* Time Slot Display */
 #time-selection-step { display: block; }
 #time-slot-display { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--bg-med-blue); }
 #time-slot-header { font-size: 1.5em; font-weight: 700; margin-bottom: 1rem; }
@@ -669,12 +728,11 @@ footer {
     cursor: not-allowed; opacity: 0.6; border-color: var(--bg-med-blue); text-decoration: line-through;
 }
 
-/* Action Bar & Booking Modal */
 .booking-action-bar {
     display: flex;
-    flex-direction: column;  /* เปลี่ยนเป็นแนวตั้งเพื่อย้ายปุ่มลงล่าง */
-    align-items: stretch;    /* ทำให้ item ข้างใน (ปุ่ม) ขยายเต็มความกว้าง */
-    gap: 1.5rem;             /* เพิ่มช่องว่างระหว่างส่วนสรุปและปุ่ม */
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
     margin-top: 2rem;
     padding: 1.5rem;
     background-color: #2D3748;
@@ -688,24 +746,22 @@ footer {
     display: flex;
     align-items: baseline;
     gap: 0.4em;
-    justify-content: center; /* จัดให้อยู่กึ่งกลาง */
+    justify-content: center;
 }
 #selection-summary span {
-    font-family: var(--font-headline); /* ใช้ฟอนต์หัวเรื่องกับตัวเลข */
-    font-size: 2.8em; /* ขยายขนาดตัวเลขให้ใหญ่และเด่นชัด */
+    font-family: var(--font-headline);
+    font-size: 2.8em;
     color: var(--secondary-color);
     font-weight: 700;
     line-height: 1;
 }
 #request-booking-btn:disabled {
-    background-color: transparent; /* เปลี่ยนพื้นหลังเป็นโปร่งใส */
-    border-color: #4A5568;       /* ใช้สีเทาอ่อนสำหรับเส้นขอบ */
-    color: #718096;              /* ตัวหนังสือสีเทาที่อ่อนลง */
+    background-color: transparent;
+    border-color: #4A5568;
+    color: #718096;
     cursor: not-allowed;
-    opacity: 0.6;                /* ทำให้โปร่งแสงเล็กน้อยเพื่อสื่อว่ากดไม่ได้ */
+    opacity: 0.6;
 }
-
-/* ป้องกันไม่ให้มีเอฟเฟกต์ hover ตอนที่ปุ่มกดไม่ได้ */
 #request-booking-btn:disabled::before {
     transform: scaleX(0);
 }
@@ -722,9 +778,323 @@ footer {
 #payment-slip { width: 100%; color: var(--text-light-gray); background-color: var(--bg-dark-blue); border: 1px dashed var(--border-blue); padding: 1rem; border-radius: 8px; }
 #booking-request-form .form-group input { background-color: var(--bg-dark-blue); }
 
-
 /* ==========================================================================
-   9. Responsive Design
+   9. `event.html` Specific Styles
+   ========================================================================== */
+.event-list-section {
+    padding-top: 60px;
+    padding-bottom: 80px;
+    background-color: var(--primary-color);
+}
+.event-list-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.event-card {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    background-color: var(--bg-light);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.event-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.event-card-content {
+    padding: 30px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+.event-tag {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.8em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    align-self: flex-start;
+}
+.event-tag-workshop {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+.event-tag-event {
+    background-color: #4a90e2;
+    color: var(--secondary-color);
+}
+.event-tag-news {
+    background-color: #555;
+    color: var(--secondary-color);
+}
+.event-title {
+    font-family: var(--font-headline);
+    font-size: 2em;
+    margin-bottom: 5px;
+    color: var(--secondary-color);
+}
+.event-date {
+    font-size: 0.9em;
+    color: #aaa;
+    margin-bottom: 15px;
+}
+.event-description {
+    color: #ccc;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+#eventDetailModal .modal-content {
+    max-width: 700px;
+}
+#modalEventDescription h4 {
+    font-family: var(--font-headline);
+    color: var(--accent-color);
+    font-size: 1.5em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+#modalEventDescription ul {
+    list-style-position: inside;
+    padding-left: 10px;
+}
+#modalEventDescription ul li {
+    margin-bottom: 8px;
+    color: #ccc;
+}
+/* ==========================================================================
+   10. teamwerks-qualify.html Styles
+   ========================================================================== */
+.audition-page {
+    background: #000000;
+}
+.audition-form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    padding: 150px 20px 80px 20px;
+    position: relative;
+    overflow: hidden;
+}
+.form-bg-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: auto;
+    opacity: 0.5;
+    z-index: 1;
+    pointer-events: none;
+}
+.form-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    background-color: rgba(26, 26, 26, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    text-align: center;
+}
+.form-container h2 {
+    font-family: var(--font-headline);
+    font-size: 3em;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+.form-container p {
+    color: #ccc;
+    margin-bottom: 30px;
+}
+.form-container .form-group label {
+    text-align: left;
+}
+.form-container button[type="submit"] {
+    margin-top: 20px;
+    width: 100%;
+}
+.form-note {
+    font-size: 0.9em;
+    text-align: left;
+    color: #aaa !important;
+    margin-top: -15px;
+    margin-bottom: 10px !important;
+}
+/* ==========================================================================
+   NEWS & EVENTS SECTION (HOMEPAGE)
+   ========================================================================== */
+.news-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.news-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.news-card {
+    background-color: var(--primary-color);
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card .event-tag {
+    align-self: center; /* ทำให้แท็กอยู่กึ่งกลาง */
+}
+
+.news-card h3 {
+    font-family: var(--font-headline);
+    font-size: 2.2em;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.news-card .news-date {
+    font-size: 0.9em;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.news-card .news-description {
+    color: #ccc;
+    flex-grow: 1; /* ดันปุ่มไปอยู่ข้างล่างสุด */
+}
+
+.news-card-actions {
+    margin-top: 20px;
+}
+/* ==========================================================================
+   NEW INTERACTIVE SECTIONS & SCROLL ANIMATIONS (เวอร์ชันอัปเดต)
+   ========================================================================== */
+
+/* --- 1. Global Fade-in on Scroll Animation --- */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(50px); /* เพิ่มระยะการเลื่อนขึ้น */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* ทำให้นุ่มนวลขึ้น */
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- 2. Desktop Hover-Reveal Design --- */
+.interactive-section .card-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.interactive-card {
+    background-color: var(--primary-color);
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    flex: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.interactive-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.interactive-card h3, .interactive-card h4 {
+    font-size: 1.8em;
+    color: var(--accent-color);
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.card-description {
+    color: #ccc;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, margin-top 0.5s ease-in-out;
+    margin-top: 0;
+}
+
+.interactive-card:hover .card-description {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 20px;
+}
+
+
+/* --- 3. Mobile "End Credits" Design --- */
+@media screen and (max-width: 768px) {
+    .interactive-section .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .interactive-card {
+        width: 100%;
+        max-width: 400px;
+        cursor: default;
+        /* ทำให้การ์ดในมือถือค่อยๆ ทะยานขึ้นมาชัดเจนขึ้น */
+        opacity: 0;
+        transform: translateY(80px); /* เพิ่มระยะเลื่อนให้ชัดขึ้น */
+        transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    /* เมื่อ Section แสดงผลในหน้าจอ ให้การ์ดปรากฏตัว */
+    .interactive-section.is-visible .interactive-card {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* ทำให้ Description แสดงผลตลอดเวลาในมือถือ */
+    .card-description {
+        max-height: 200px;
+        opacity: 1;
+        margin-top: 20px;
+        transition: none;
+    }
+
+    /* ปิดการทำงานของ Hover Effect ในมือถือ */
+    .interactive-card:hover .card-description {
+        margin-top: 20px;
+    }
+    
+    /* ตั้งค่า Delay ให้แต่ละการ์ดปรากฏไม่พร้อมกัน (ทำให้รู้สึกเหมือน End Credit) */
+    .interactive-section.is-visible .interactive-card:nth-child(1) { transition-delay: 0.2s; }
+    .interactive-section.is-visible .interactive-card:nth-child(2) { transition-delay: 0.4s; }
+    .interactive-section.is-visible .interactive-card:nth-child(3) { transition-delay: 0.6s; }
+}
+/* ==========================================================================
+   11. Responsive Design
    ========================================================================== */
 .mobile-only-button { display: none !important; }
 
@@ -750,21 +1120,30 @@ footer {
     .burger { display: block; }
     .desktop-only-button { display: none; }
     .mobile-only-button { display: block !important; background-color: var(--accent-color); color: var(--primary-color); }
-
     section { padding: 80px 5%; }
     .hero-content h1 { font-size: 3.5em; }
     .hero-content p { font-size: 1em; }
     section h2 { font-size: 2.5em; }
     .class-cards, .features { flex-direction: column; }
-
     .contact-modal-body { grid-template-columns: 1fr; }
     .contact-info-container { padding-left: 0; border-left: none; border-top: 1px solid #444; padding-top: 30px; margin-top: 30px; }
-
     .page-hero h1 { font-size: 4em; }
     .class-content h2 { font-size: 2.5em; }
     .price-table { font-size: 0.8em; }
     .table-header, .table-row { grid-template-columns: 1.5fr 1fr 1fr 1fr; }
-}
+
+    /* --- Responsive for Event Page --- */
+    .event-card {
+        grid-template-columns: 1fr;
+    }
+    .event-card-image {
+        height: 200px;
+    }
+    .event-card-content {
+        padding: 25px;
+    }
+
+} /* <-- Closes @media (max-width: 768px) */
 
 @media screen and (max-width: 600px) {
     .crew-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -784,9 +1163,49 @@ footer {
         content: attr(data-label);
         font-weight: 700; display: block; color: #ccc; font-size: 0.8em;
     }
-    /* This requires adding data-label attributes to the HTML, which I've omitted for brevity. */
 }
 
 @media screen and (max-width: 400px) {
     .crew-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   TRANSPARENT SECTIONS & PARALLAX EFFECT STYLES
+   ========================================================================== */
+
+/* 1. ทำให้พื้นหลังหลักโปร่งใสเพื่อโชว์วิดีโอ */
+body {
+    background-color: transparent;
+}
+
+/* 2. ทำให้พื้นหลังของทุก Section เป็นสีดำกึ่งโปร่งใส พร้อมเอฟเฟกต์กระจกฝ้า */
+/* ใช้ได้กับ Section ที่มีพื้นหลังสีเทาเข้มอยู่แล้ว */
+.offer-section,
+.why-section,
+.news-section,
+footer {
+    background-color: rgba(13, 13, 13, 0.85); /* สีดำโปร่งแสง 85% */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px); /* เอฟเฟกต์เบลอพื้นหลัง (กระจกฝ้า) */
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* ทำให้การ์ดที่อยู่ข้างใน Section กลับมามีพื้นหลังทึบเพื่อความสวยงาม */
+.interactive-card,
+.card {
+    background-color: rgba(26, 26, 26, 0.7); /* สีเทาเข้มกึ่งโปร่งใส */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 3. เพิ่มเงาให้ตัวอักษรหลักๆ เพื่อให้อ่านง่ายขึ้น */
+.hero-content h1,
+.hero-content p,
+section h2,
+.card h3,
+.card p,
+.interactive-card h3,
+.interactive-card h4,
+.interactive-card .card-description {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
