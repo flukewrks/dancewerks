@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DANCEWERKS Store</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="store-style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body class="store-page has-fixed-bg">
+
+    <header>
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="images/icon.png" alt="DANCEWERKS Logo"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="">Classes</a></li>
+            <li><a href="event.html">Events</a></li>
+            <li><a href="store.html">Store</a></li>
+            <li><a href="#" class="open-contact-btn">Contact Us</a></li>
+        </ul>
+
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+</header>
+
+    <main>
+        <div class="store-container">
+            
+            <div class="product-display">
+    <div class="product-image-slider">
+        <span class="pre-order-badge">PRE-ORDER</span>
+
+        <div class="slider-wrapper">
+            <div class="slide active"><img src="images/shirt-mockup-1.png" alt="DANCEWERKS T-Shirt Front"></div>
+            <div class="slide"><img src="images/shirt-mockup-2.png" alt="DANCEWERKS T-Shirt Back"></div>
+            <div class="slide"><img src="images/shirt-mockup-3.png" alt="DANCEWERKS T-Shirt Detail"></div>
+        </div>
+        <button class="slider-btn prev">&lt;</button>
+        <button class="slider-btn next">&gt;</button>
+        <div class="slider-dots"></div>
+    </div>
+
+    <h1 class="product-title">DANCEWERKS 'WERK ETHIC' T-SHIRT</h1>
+    <p class="product-price">790 THB</p>
+
+    <p class="stock-info">Limited: 100 Pieces / Batch</p>
+
+    <p class="product-description">
+        เสื้อยืดรุ่นพิเศษจาก DANCEWERKS ผลิตจากผ้า Cotton 100% เนื้อนุ่มใส่สบาย พร้อมดีไซน์สกรีนคุณภาพสูง
+        <br><strong>หมายเหตุ:</strong> สินค้านี้เป็นสินค้า Pre-order จะเริ่มจัดส่งหลังจากปิดรอบ 14 วัน
+    </p>
+
+    <div class="order-counter">
+        <div class="counter-text">
+            <span>Pre-orders: <strong id="current-orders">0</strong> / 100</span>
+            <span id="sold-out-text" style="display: none;">SOLD OUT</span>
+        </div>
+        <div class="progress-bar">
+            <div id="progress-bar-fill"></div>
+        </div>
+    </div>
+</div>
+
+            <div class="order-form-container">
+                <h2>ORDER FORM</h2>
+                
+                <div class="payment-info">
+                    <p><strong>1. ชำระเงินผ่าน PromptPay</strong></p>
+                    <img src="images/qr-payment.jpg" alt="PromptPay QR Code" class="qr-code">
+                    <p class="qr-note">สแกน QR Code เพื่อชำระเงิน 790 บาท</p>
+                </div>
+                
+                <form id="order-form" action="YOUR_FORM_ENDPOINT" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="subject" value="รายการสั่งซื้อใหม่: DANCEWERKS T-SHIRT">
+                    
+                    <p class="form-step"><strong>2. กรอกข้อมูลการสั่งซื้อและแนบสลิป</strong></p>
+                    
+                    <div class="form-group">
+                        <label>เลือกไซส์ (Size)</label>
+                        <div class="size-selector">
+                            <label><input type="radio" name="size" value="S" checked><span>S</span></label>
+                            <label><input type="radio" name="size" value="M"><span>M</span></label>
+                            <label><input type="radio" name="size" value="L"><span>L</span></label>
+                            <label><input type="radio" name="size" value="XL"><span>XL</span></label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="store-fullname">ชื่อ-นามสกุล</label>
+                        <input type="text" id="store-fullname" name="fullname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="store-phone">เบอร์โทรศัพท์</label>
+                        <input type="tel" id="store-phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>วิธีการรับสินค้า</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="delivery_option" value="จัดส่ง" checked> จัดส่ง (มีค่าบริการการจัดส่ง50บาท)</label>
+                            <label><input type="radio" name="delivery_option" value="รับที่สถาบัน"> มารับเองที่สถาบัน</label>
+                        </div>
+                        <div class="form-group" id="pickup-location-container" style="display: none;">
+                            <label>สถานที่รับสินค้า</label>
+                            <div class="location-box">
+                             <p>DANCEWERKS Studio</p>
+                             <a href="https://g.co/kgs/TPABqbi" target="_blank" rel="noopener noreferrer">ดูแผนที่ (Google Maps)</a>
+                        </div>
+</div>
+                    </div>
+                    
+                    <div class="form-group" id="shipping-address-container">
+                        <label for="store-address">ที่อยู่สำหรับจัดส่ง</label>
+                        <textarea id="store-address" name="address" rows="3" placeholder="บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด, รหัสไปรษณีย์" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="store-slip">แนบสลิปยืนยันการชำระเงิน</label>
+                        <input type="file" id="store-slip" name="payment_slip" accept="image/*" required>
+                    </div>
+
+                    <button type="submit" class="cta-button">ยืนยันการสั่งซื้อ</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+    
+    <footer id="contact">
+        </footer>
+
+    <script src="script.js"></script>
+    <script src="store-script.js"></script>
+</body>
+</html>
