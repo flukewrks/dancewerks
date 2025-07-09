@@ -6,71 +6,83 @@
     <title>DANCEWERKS Store</title>
     
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="store-style.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
-<body class="store-page has-fixed-bg">
-
+<!-- เพิ่ม class "store-page" เพื่อให้สไตล์สำหรับหน้าร้านทำงาน -->
+<body class="store-page">
     <header>
-    <nav>
-        <div class="logo">
-            <a href="index.html"><img src="images/icon.png" alt="DANCEWERKS Logo"></a>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="">Classes</a></li>
-            <li><a href="event.html">Events</a></li>
-            <li><a href="store.html">Store</a></li>
-            <li><a href="#" class="open-contact-btn">Contact Us</a></li>
-        </ul>
-
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div>
-    </nav>
-</header>
+        <nav>
+            <div class="logo">
+                <!-- เปลี่ยนเป็น icon2.png เพื่อให้มองเห็นบนพื้นหลังสีอ่อน -->
+                <a href="index.html"><img src="images/icon2.png" alt="DANCEWERKS Logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <!-- แก้ไขลิงก์ให้ถูกต้อง -->
+                <li><a href="class.html">Classes</a></li>
+                <li><a href="event.html">Events</a></li>
+                <li><a href="">Store</a></li>
+                <li><a href="#" class="open-contact-btn">Contact Us</a></li>
+                <!-- เพิ่มปุ่ม Booking สำหรับ Mobile เพื่อความสอดคล้อง -->
+                <li>
+                    <a href="schedule.html" class="cta-button nav-button mobile-only-button cta-button-unavailable">
+                        <span class="button-text-small">PRIVATE</span>
+                        <span class="button-text-large">BOOKING NOW</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- เพิ่มปุ่ม Booking สำหรับ Desktop เพื่อความสอดคล้อง -->
+            <a href="schedule.html" class="cta-button nav-button desktop-only-button cta-button-unavailable">
+                <span class="button-text-small">PRIVATE CLASS</span>
+                <span class="button-text-large">BOOKING NOW</span>
+            </a>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
 
     <main>
         <div class="store-container">
             
             <div class="product-display">
-    <div class="product-image-slider">
-        <span class="pre-order-badge">PRE-ORDER</span>
+                <div class="product-image-slider">
+                    <span class="pre-order-badge">PRE-ORDER</span>
 
-        <div class="slider-wrapper">
-            <div class="slide active"><img src="images/shirt-mockup-1.png" alt="DANCEWERKS T-Shirt Front"></div>
-            <div class="slide"><img src="images/shirt-mockup-2.png" alt="DANCEWERKS T-Shirt Back"></div>
-            <div class="slide"><img src="images/shirt-mockup-3.png" alt="DANCEWERKS T-Shirt Detail"></div>
-        </div>
-        <button class="slider-btn prev">&lt;</button>
-        <button class="slider-btn next">&gt;</button>
-        <div class="slider-dots"></div>
-    </div>
+                    <div class="slider-wrapper">
+                        <div class="slide active"><img src="images/shirt-mockup-1.png" alt="DANCEWERKS T-Shirt Front"></div>
+                        <div class="slide"><img src="images/shirt-mockup-2.png" alt="DANCEWERKS T-Shirt Back"></div>
+                        <div class="slide"><img src="images/shirt-mockup-3.png" alt="DANCEWERKS T-Shirt Detail"></div>
+                    </div>
+                    <button class="slider-btn prev">&lt;</button>
+                    <button class="slider-btn next">&gt;</button>
+                    <div class="slider-dots"></div>
+                </div>
 
-    <h1 class="product-title">DANCEWERKS 'WERK ETHIC' T-SHIRT</h1>
-    <p class="product-price">790 THB</p>
+                <h1 class="product-title">DANCEWERKS 'WERK ETHIC' T-SHIRT</h1>
+                <p class="product-price">790 THB</p>
 
-    <p class="stock-info">Limited: 100 Pieces / Batch</p>
+                <p class="stock-info">Limited: 100 Pieces / Batch</p>
 
-    <p class="product-description">
-        เสื้อยืดรุ่นพิเศษจาก DANCEWERKS ผลิตจากผ้า Cotton 100% เนื้อนุ่มใส่สบาย พร้อมดีไซน์สกรีนคุณภาพสูง
-        <br><strong>หมายเหตุ:</strong> สินค้านี้เป็นสินค้า Pre-order จะเริ่มจัดส่งหลังจากปิดรอบ 14 วัน
-    </p>
+                <p class="product-description">
+                    เสื้อยืดรุ่นพิเศษจาก DANCEWERKS ผลิตจากผ้า Cotton 100% เนื้อนุ่มใส่สบาย พร้อมดีไซน์สกรีนคุณภาพสูง
+                    <br><strong>หมายเหตุ:</strong> สินค้านี้เป็นสินค้า Pre-order จะเริ่มจัดส่งหลังจากปิดรอบ 14 วัน
+                </p>
 
-    <div class="order-counter">
-        <div class="counter-text">
-            <span>Pre-orders: <strong id="current-orders">0</strong> / 100</span>
-            <span id="sold-out-text" style="display: none;">SOLD OUT</span>
-        </div>
-        <div class="progress-bar">
-            <div id="progress-bar-fill"></div>
-        </div>
-    </div>
-</div>
+                <div class="order-counter">
+                    <div class="counter-text">
+                        <span>Pre-orders: <strong id="current-orders">0</strong> / 100</span>
+                        <span id="sold-out-text" style="display: none;">SOLD OUT</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div id="progress-bar-fill"></div>
+                    </div>
+                </div>
+            </div>
 
             <div class="order-form-container">
                 <h2>ORDER FORM</h2>
@@ -138,9 +150,18 @@
     </main>
     
     <footer id="contact">
-        </footer>
+    </footer>
+
+    <!-- ========== THEME TOGGLE BUTTON START ========== 
+    <button id="theme-toggle" class="theme-toggle-btn">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+    ========== THEME TOGGLE BUTTON END ========== -->
 
     <script src="script.js"></script>
     <script src="store-script.js"></script>
+    <!-- เพิ่ม script สำหรับปุ่มสลับธีม -->
+    <script src="theme-switcher.js"></script>
 </body>
 </html>
