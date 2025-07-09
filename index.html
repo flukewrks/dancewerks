@@ -7,8 +7,7 @@
     
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://www.gstatic.com https://apis.google.com;">
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230D0D0D' /><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Bebas Neue, sans-serif' font-size='65' fill='%23B13022' dy='.05em'>DW</text></svg>">
-    
+    <link rel="icon" type="image/png" href="images/icon2.png">    
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
@@ -45,7 +44,6 @@
                 <h1>DON'T WISH JUST WERKS.</h1>
                 <p>More than a studio. We are a community built on rhythm, passion, and self-expression.</p>
                 <button class="cta-button primary-button open-modal-button">BOOK YOUR FIRST CLASS</button>
-                <button id="open-dreamwerks-btn" class="cta-button secondary-button">สมัครโปรเจกต์ DREAMWERKS VOL.2</button>
             </div>
         </section>
 
@@ -214,76 +212,6 @@
                 Your browser does not support the video tag.
             </video>
         </div>
-    </div>
-    <div id="dreamwerksModal" class="modal">
-    <div class="modal-content contact-modal-content">
-        <span class="close-button dreamwerks-close">&times;</span>
-        <div>
-            <h2>ลงทะเบียนโปรเจกต์ DREAMWERKS VOL.2</h2>
-            <p>กรอกข้อมูลเพื่อสมัครเข้าร่วมโปรเจกต์ และรอการติดต่อกลับจากสถาบัน</p>
-
-            <form id="dreamwerks-form" action="YOUR_WEB3FORMS_ENDPOINT_URL" method="POST" enctype="multipart/form-data">
-
-                <div class="form-group">
-                    <label for="dw-fullname">ชื่อ-นามสกุล (Full Name)</label>
-                    <input type="text" id="dw-fullname" name="fullname" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="dw-nickname">ชื่อเล่น (Nickname)</label>
-                    <input type="text" id="dw-nickname" name="nickname" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="dw-birthdate">วันเกิด (Date of Birth)</label>
-                    <input type="date" id="dw-birthdate" name="birthdate" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="dw-age">อายุ (Age)</label>
-                    <input type="number" id="dw-age" name="age" required>
-                </div>
-
-                <div class="form-group-grid">
-                    <div class="form-group">
-                        <label for="dw-weight">น้ำหนัก (Weight, kg)</label>
-                        <input type="number" id="dw-weight" name="weight" step="0.1" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="dw-height">ส่วนสูง (Height, cm)</label>
-                        <input type="number" id="dw-height" name="height" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="dw-education">กำลังศึกษาอยู่ชั้น (Current Grade/Year)</label>
-                    <input type="text" id="dw-education" name="education" required>
-                </div>
-
-                <div class="form-group">
-                    <label>ความสามารถพิเศษ (Talents)</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="talents[]" value="ร้องเพลง"> ร้องเพลง (Singing)</label>
-                        <label><input type="checkbox" name="talents[]" value="การแสดง"> การแสดง (Acting)</label>
-                        <label><input type="checkbox" name="talents[]" value="เดินแบบ"> เดินแบบ (Modeling)</label>
-                        <label><input type="checkbox" name="talents[]" value="อื่นๆ"> อื่นๆ (โปรดระบุ)</label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="dw-photo">แนบรูปถ่าย (Photo Attachment)</label>
-                    <input type="file" id="dw-photo" name="photo" accept="image/*" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="dw-video">แนบคลิปวิดีโอความสามารถ (Video Attachment)</label>
-                    <input type="file" id="dw-video" name="video" accept="video/*" required>
-                </div>
-
-                <button type="submit" class="cta-button primary-button">ส่งใบสมัคร</button>
-            </form>
-        </div>
-    </div>
     </div>
     
     <script src="script.js"></script>
